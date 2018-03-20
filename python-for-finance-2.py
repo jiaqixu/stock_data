@@ -41,7 +41,7 @@ def get_data_from_yahoo(reload_sp500=False):
     if not os.path.exists('stock_dfs'):
         os.makedirs('stock_dfs')
 
-    start=dt.datetime(2016,1,1)      
+    start=dt.datetime(2000,1,1)      
     end=dt.datetime(2016,12,31)
 
     for ticker in tickers:
