@@ -5,6 +5,11 @@ import pandas as pd
 import pandas_datareader as web
 import pickle
 import requests
+from pandas_datareader import data as pdr
+import fix_yahoo_finance as yf
+
+yf.pdr_override() # <== that's all it takes :-)
+
 
 ###get list of sp500 companies
 def save_sp500_tickers():
@@ -42,9 +47,10 @@ def get_data_from_yahoo(reload_sp500=False):
     for ticker in tickers:
         print(ticker)
         if not os.path.exists('stock_dfs/{}.csv'.format(ticker)):
-            df=web.DataReader(ticker,'yahoo',start,end)
+            df=pdr.get_data_yahoo(ticker,start,end)
             df.to_csv('stock_dfs/{}.csv'.format(ticker))
         else:
             print('Already have {}'.format(ticker))  
 
-    get_data_from_yahoo()
+
+get_data_from_yahoo()
