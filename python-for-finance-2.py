@@ -44,6 +44,7 @@ def get_data_from_yahoo(reload_sp500=False):
     start=dt.datetime(2000,1,1)      
     end=dt.datetime(2016,12,31)
 
+
     for ticker in tickers:
         print(ticker)
         if not os.path.exists('stock_dfs/{}.csv'.format(ticker)):
