@@ -16,7 +16,7 @@ def process_data_for_labels(ticker):
 
 #process_data_for_labels('XOM')
 
-def buy_sell_hold(*arg):
+def buy_sell_hold(*args):
     cols = [c for c in args]
     requirement = 0.02
     for col in cols:
@@ -26,4 +26,3 @@ def buy_sell_hold(*arg):
             return -1
     return 0
 
- 
